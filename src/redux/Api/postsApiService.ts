@@ -10,6 +10,14 @@ type ApiResponse = {
   blogs: Post[];
 };
 
+type ApiResponsewithId = {
+  success: boolean;
+  total_blogs: number;
+  message: string;
+  offset: number;
+  limit: number;
+  blog: Post;
+};
 export const postsApi = createApi({
   reducerPath: 'postsApi',
   baseQuery: fetchBaseQuery({
@@ -19,7 +27,10 @@ export const postsApi = createApi({
     getPosts: builder.query<ApiResponse, void>({
       query: () => `/blog-posts?limit=50`,
     }),
+    getPostById: builder.query<ApiResponsewithId, number>({
+      query: id => `/blog-posts/${id}`,
+    }),
   }),
 });
 
-export const { useGetPostsQuery } = postsApi;
+export const { useGetPostsQuery, useGetPostByIdQuery } = postsApi;

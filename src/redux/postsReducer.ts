@@ -6,11 +6,11 @@ export type Post = {
   id: number;
   content_html: string;
   category: string;
-  updated_at: string;
+  updated_at: Date;
   title: string;
   content_text: string;
   user_id: number;
-  created_at: string;
+  created_at: Date;
   photo_url: string;
 };
 

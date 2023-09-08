@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Post } from '../../redux/postsReducer';
 
 type PostCardProps = {
@@ -14,7 +15,9 @@ const PostCard = ({ post }: PostCardProps) => {
         <h2 className="card-title">{post.title}</h2>
         <p>{post.description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Read more</button>
+          <Link to={`/post/${post.id}`}>
+            <button className="btn btn-primary">Read more</button>
+          </Link>
         </div>
       </div>
     </div>
