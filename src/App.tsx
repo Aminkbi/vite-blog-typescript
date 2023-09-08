@@ -3,8 +3,10 @@ import HomePage from './pages/Home/HomePage';
 import AboutUs from './pages/Aboutus/Aboutus';
 import NotfoundPage from './pages/NotFound/NotfoundPage';
 import PostPage from './pages/PostPage/PostPage';
+import { lazy } from 'react';
 
 function App() {
+  lazy(() => import('./components/LatestNews/PostCard'));
   return (
     <BrowserRouter>
       <Routes>
