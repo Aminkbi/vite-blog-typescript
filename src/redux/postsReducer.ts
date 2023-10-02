@@ -14,11 +14,19 @@ export type Post = {
   photo_url: string;
 };
 
-const initialState: Array<Post> = [];
+type initialState = {
+  posts: Array<Post>;
+};
+
 export const postSlice = createSlice({
   name: 'posts',
-  initialState,
-  reducers: {},
+  initialState: {} as initialState,
+  reducers: {
+    addPostsFromApi: (state, action) => {
+      state.posts = action.payload;
+    },
+  },
 });
+export const { addPostsFromApi } = postSlice.actions;
 export const userSelector = (state: RootState) => state.postsReducer;
 export default postSlice.reducer;

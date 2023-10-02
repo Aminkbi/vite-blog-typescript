@@ -3,6 +3,7 @@ import { useGetPostsQuery } from '../../redux/Api/postsApiService';
 import { Post } from '../../redux/postsReducer';
 import { useState } from 'react';
 import Pagination from '../Pagination';
+
 const LatestNews = () => {
   const { data, isLoading } = useGetPostsQuery();
 
