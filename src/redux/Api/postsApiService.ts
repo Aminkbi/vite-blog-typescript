@@ -1,21 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Post } from '../postsReducer';
 
-type ApiResponse = {
+interface BaseResponse {
   success: boolean;
   total_blogs: number;
   message: string;
   offset: number;
   limit: number;
+}
+
+type ApiResponse = BaseResponse & {
   blogs: Post[];
 };
 
-type ApiResponsewithId = {
-  success: boolean;
-  total_blogs: number;
-  message: string;
-  offset: number;
-  limit: number;
+type ApiResponsewithId = BaseResponse & {
   blog: Post;
 };
 export const postsApi = createApi({
